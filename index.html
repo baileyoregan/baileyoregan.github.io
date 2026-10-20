@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bailey O'Regan</title>
+  <meta name="description" content="Portfolio coming soon.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1 id="name"></h1>
+    <p id="tagline"></p>
+  </main>
+  <footer id="footer"></footer>
+  <script src="content.js"></script>
+  <script>
+    document.title = SITE.name;
+    document.getElementById("name").textContent = SITE.name;
+    document.getElementById("tagline").textContent = SITE.tagline;
+    document.getElementById("footer").textContent = SITE.footer;
+  </script>
+</body>
+</html>
