@@ -4,21 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bailey O'Regan</title>
-  <meta name="description" content="Portfolio coming soon.">
+  <meta name="description" content="Bailey O'Regan: Stanford Design Engineering student, Division I swimmer, and Team Canada open water swimmer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="nav">
+    <a class="nav-name" href="#top" id="nav-name"></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1 id="name"></h1>
+      <p class="tagline" id="tagline"></p>
+      <ul class="tags" id="tags"></ul>
+    </div>
+    <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,64 C240,112 480,16 720,56 C960,96 1200,32 1440,64 L1440,120 L0,120 Z" />
+    </svg>
+  </section>
+
   <main>
-    <h1 id="name"></h1>
-    <p id="tagline"></p>
+    <section class="wrap section" id="about">
+      <h2>About</h2>
+      <div class="about" id="about-text"></div>
+      <div class="highlights" id="highlights"></div>
+    </section>
+
+    <section class="wrap section" id="experience">
+      <h2>Experience</h2>
+      <div class="timeline" id="experience-list"></div>
+    </section>
+
+    <section class="wrap section" id="leadership">
+      <h2>Leadership &amp; Athletics</h2>
+      <div class="cards" id="leadership-list"></div>
+    </section>
+
+    <section class="wrap section two-col">
+      <div>
+        <h2>Skills</h2>
+        <ul class="chips" id="skills"></ul>
+      </div>
+      <div>
+        <h2>Off the clock</h2>
+        <ul class="chips" id="interests"></ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2>Let's connect</h2>
+        <p id="contact-blurb"></p>
+        <div class="contact-links">
+          <a class="btn" id="email-link"></a>
+          <a class="btn btn-ghost" id="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer id="footer"></footer>
+
+  <footer class="footer" id="footer"></footer>
+
   <script src="content.js"></script>
-  <script>
-    document.title = SITE.name;
-    document.getElementById("name").textContent = SITE.name;
-    document.getElementById("tagline").textContent = SITE.tagline;
-    document.getElementById("footer").textContent = SITE.footer;
-  </script>
+  <script src="render.js"></script>
 </body>
 </html>

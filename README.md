@@ -7,6 +7,7 @@ Live at https://baileyoregan.com (hosted free on GitHub Pages).
 | File | What it does |
 |------|--------------|
 | `content.js` | **All the words on the site.** Edit this to change the text. |
+| `render.js` | Puts the text from content.js onto the page. You usually won't need to touch it. |
 | `index.html` | The page structure. |
 | `style.css` | Colors, fonts, layout. |
 | `CNAME` | Tells GitHub Pages to serve the site at baileyoregan.com. Don't delete it. |
