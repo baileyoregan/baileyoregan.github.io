@@ -7,6 +7,10 @@
 
 const SITE = {
   name: "Bailey O'Regan",
+  // Tiny line above your name at the top of the page
+  heroLabel: "design · water · people",
+  // Small line at the bottom of the top section
+  location: "Stanford University — Palo Alto, CA",
   // Short line under your name at the top of the page
   tagline: "Design engineer, Division I swimmer, and mentor.",
   // Small labels shown under the tagline
@@ -22,7 +26,6 @@ const SITE = {
     { value: "NCAA", label: "Championships qualifier on a national runner-up team" },
     { value: "Team Canada", label: "Pan Am Games and World Championships open water swimmer" },
     { value: "All-American", label: "CSCAA Academic All-American and 2x ACC Honor Roll" },
-    { value: "3.7", label: "Cumulative GPA at Stanford" },
   ],
 
   experience: [

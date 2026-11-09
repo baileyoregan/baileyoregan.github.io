@@ -7,39 +7,51 @@
     if (text != null) n.textContent = text;
     return n;
   };
+  const pad = (i) => String(i + 1).padStart(2, "0");
 
   document.title = SITE.name;
-  $("nav-name").textContent = SITE.name;
+  $("brand").textContent = SITE.name;
+  $("hero-label").textContent = SITE.heroLabel;
   $("name").textContent = SITE.name;
   $("tagline").textContent = SITE.tagline;
-  SITE.tags.forEach((t) => $("tags").append(el("li", null, t)));
+  $("location").textContent = SITE.location;
 
   SITE.about.forEach((p) => $("about-text").append(el("p", null, p)));
+  SITE.tags.forEach((t) => $("tags").append(el("li", null, t)));
+
   SITE.highlights.forEach((h) => {
-    const card = el("div", "highlight");
-    card.append(el("strong", null, h.value), el("span", null, h.label));
-    $("highlights").append(card);
+    const s = el("div", "stat");
+    s.append(el("strong", null, h.value), el("span", null, h.label));
+    $("stats").append(s);
   });
 
   SITE.experience.forEach((job) => {
-    const item = el("article", "item");
-    const head = el("div", "item-head");
-    head.append(el("h3", null, job.role), el("span", "when", job.when));
-    item.append(head, el("p", "org", [job.org, job.where].filter(Boolean).join(" · ")), el("p", null, job.summary));
-    $("experience-list").append(item);
+    const row = el("article", "row");
+    const meta = el("div", "row-meta");
+    meta.append(el("span", "small-caps", job.when), el("span", "where", job.where));
+    const body = el("div", "row-body");
+    body.append(el("h3", null, job.role), el("p", "org", job.org), el("p", null, job.summary));
+    row.append(meta, body);
+    $("experience-list").append(row);
   });
 
-  SITE.leadership.forEach((l) => {
-    const card = el("article", "card");
-    card.append(el("span", "when", l.when), el("h3", null, l.role), el("p", "org", l.org), el("p", null, l.summary));
-    $("leadership-list").append(card);
+  SITE.leadership.forEach((l, i) => {
+    const col = el("article", "col");
+    col.append(
+      el("span", "num", pad(i)),
+      el("h3", null, l.role),
+      el("p", "org", l.org),
+      el("p", "small-caps", l.when),
+      el("p", null, l.summary)
+    );
+    $("leadership-list").append(col);
   });
 
-  SITE.skills.forEach((s) => $("skills").append(el("li", null, s)));
-  SITE.interests.forEach((s) => $("interests").append(el("li", null, s)));
+  $("skills").textContent = SITE.skills.join("  /  ");
+  $("interests").textContent = SITE.interests.join("  /  ");
 
   $("contact-blurb").textContent = SITE.contact.blurb;
-  $("email-link").textContent = SITE.contact.email;
+  $("email-link").textContent = "Email";
   $("email-link").href = "mailto:" + SITE.contact.email;
   $("linkedin-link").href = SITE.contact.linkedin;
   $("footer").textContent = SITE.footer;

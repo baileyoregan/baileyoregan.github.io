@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bailey O'Regan</title>
   <meta name="description" content="Bailey O'Regan: Stanford Design Engineering student, Division I swimmer, and Team Canada open water swimmer.">
+  <meta name="theme-color" content="#e4dbd0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="nav">
-    <a class="nav-name" href="#top" id="nav-name"></a>
+  <header class="topbar">
+    <a href="#top" class="brand" id="brand"></a>
     <nav>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -21,59 +22,106 @@
     </nav>
   </header>
 
+  <!-- Top section: embossed name on sand -->
   <section class="hero" id="top">
-    <div class="wrap">
-      <p class="eyebrow">Hi, I'm</p>
-      <h1 id="name"></h1>
-      <p class="tagline" id="tagline"></p>
-      <ul class="tags" id="tags"></ul>
-    </div>
-    <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,64 C240,112 480,16 720,56 C960,96 1200,32 1440,64 L1440,120 L0,120 Z" />
-    </svg>
+    <p class="small-caps" id="hero-label"></p>
+    <h1 class="emboss" id="name"></h1>
+    <p class="tagline" id="tagline"></p>
+    <p class="small-caps hero-foot" id="location"></p>
   </section>
 
   <main>
-    <section class="wrap section" id="about">
-      <h2>About</h2>
-      <div class="about" id="about-text"></div>
-      <div class="highlights" id="highlights"></div>
-    </section>
-
-    <section class="wrap section" id="experience">
-      <h2>Experience</h2>
-      <div class="timeline" id="experience-list"></div>
-    </section>
-
-    <section class="wrap section" id="leadership">
-      <h2>Leadership &amp; Athletics</h2>
-      <div class="cards" id="leadership-list"></div>
-    </section>
-
-    <section class="wrap section two-col">
-      <div>
-        <h2>Skills</h2>
-        <ul class="chips" id="skills"></ul>
+    <!-- 01 About: index on the left, welcome text in the middle, framed "plaster wave" art on the right -->
+    <section class="spread" id="about">
+      <div class="index">
+        <h2 class="section-title">Index.</h2>
+        <ol>
+          <li><a href="#about"><span>01</span>About</a></li>
+          <li><a href="#highlights"><span>02</span>In the water</a></li>
+          <li><a href="#experience"><span>03</span>Experience</a></li>
+          <li><a href="#leadership"><span>04</span>Leadership</a></li>
+          <li><a href="#contact"><span>05</span>Contact</a></li>
+        </ol>
       </div>
-      <div>
-        <h2>Off the clock</h2>
-        <ul class="chips" id="interests"></ul>
+      <div class="welcome">
+        <h2 class="section-title">Welcome</h2>
+        <div id="about-text"></div>
+        <ul class="tags" id="tags"></ul>
       </div>
+      <figure class="frame" aria-hidden="true">
+        <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+          <defs>
+            <filter id="plaster" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/>
+              <feDiffuseLighting in="n" lighting-color="#fbf8f3" surfaceScale="1.4" result="l">
+                <feDistantLight azimuth="225" elevation="55"/>
+              </feDiffuseLighting>
+              <feComposite in="l" in2="SourceGraphic" operator="in"/>
+            </filter>
+          </defs>
+          <rect width="300" height="400" fill="#f6f2ec"/>
+          <rect width="300" height="400" fill="#f6f2ec" filter="url(#plaster)" opacity="0.55"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M-10 150 C 40 120, 80 175, 130 145 S 230 120, 310 150" stroke="#ffffff" stroke-width="16"/>
+            <path d="M-10 150 C 40 120, 80 175, 130 145 S 230 120, 310 150" stroke="#d9cfc2" stroke-width="2" transform="translate(2 8)"/>
+            <path d="M-10 205 C 50 180, 100 230, 160 200 S 250 185, 310 210" stroke="#ffffff" stroke-width="22"/>
+            <path d="M-10 205 C 50 180, 100 230, 160 200 S 250 185, 310 210" stroke="#d9cfc2" stroke-width="2" transform="translate(2 11)"/>
+            <path d="M-10 265 C 60 245, 110 290, 170 262 S 260 250, 310 270" stroke="#ffffff" stroke-width="14"/>
+            <path d="M-10 265 C 60 245, 110 290, 170 262 S 260 250, 310 270" stroke="#d9cfc2" stroke-width="2" transform="translate(2 7)"/>
+          </g>
+        </svg>
+      </figure>
     </section>
 
-    <section class="contact" id="contact">
+    <!-- 02 In the water -->
+    <section class="band" id="highlights">
       <div class="wrap">
-        <h2>Let's connect</h2>
-        <p id="contact-blurb"></p>
-        <div class="contact-links">
-          <a class="btn" id="email-link"></a>
-          <a class="btn btn-ghost" id="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+        <p class="kicker"><span>02</span> In the water</p>
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <!-- 03 Experience -->
+    <section class="wrap section" id="experience">
+      <p class="kicker"><span>03</span> Experience</p>
+      <h2 class="display">Where I've worked</h2>
+      <div class="rows" id="experience-list"></div>
+    </section>
+
+    <!-- 04 Leadership -->
+    <section class="wrap section" id="leadership">
+      <p class="kicker"><span>04</span> Leadership &amp; Athletics</p>
+      <h2 class="display">Beyond the classroom</h2>
+      <div class="columns" id="leadership-list"></div>
+    </section>
+
+    <section class="wrap section lists">
+      <div>
+        <p class="kicker">Skills</p>
+        <p class="slash-list" id="skills"></p>
+      </div>
+      <div>
+        <p class="kicker">Off the clock</p>
+        <p class="slash-list" id="interests"></p>
+      </div>
+    </section>
+
+    <!-- 05 Contact -->
+    <section class="contact" id="contact">
+      <p class="kicker"><span>05</span> Contact</p>
+      <h2 class="display">Let's connect.</h2>
+      <p class="contact-blurb" id="contact-blurb"></p>
+      <div class="contact-links">
+        <a class="btn" id="email-link"></a>
+        <a class="btn" id="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer" id="footer"></footer>
+  <footer class="footer">
+    <span id="footer"></span>
+    <a href="#top" class="small-caps">Back to top ↑</a>
+  </footer>
 
   <script src="content.js"></script>
   <script src="render.js"></script>
