@@ -77,7 +77,7 @@
     wash.append(el("div", "crest"), el("div", "crest crest-2"));
     hero.append(wash);
 
-    const TYPE = 140, HOLD = 2200, REST = 900;
+    const TYPE = 140, HOLD = 800, REST = 900;
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const render = (shown) => {
       letters.forEach((s, i) => {
