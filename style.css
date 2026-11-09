@@ -209,3 +209,32 @@ h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400
 .emboss .cursor::after { right: -0.08em; }
 .emboss.empty .letter:first-child::before { left: -0.04em; }
 @keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- The wave that washes the name away ---------- */
+.hero { overflow: hidden; }
+.emboss .letter { left: 0; top: 0; }
+.emboss .letter.washed {
+  opacity: 0; filter: blur(6px);
+  left: var(--dx, 0); top: 0.08em;
+  transition: opacity 0.9s ease, filter 0.9s ease, left 1.2s ease, top 1.2s ease;
+}
+.emboss .letter.notrans { transition: none !important; }
+.wash {
+  position: absolute; left: 0; top: 0; width: 300vmax; height: 300vmax;
+  z-index: 2; pointer-events: none;
+  transform-origin: 0 0;
+  transform: rotate(180deg) translate(-50%, 60px);
+  background: linear-gradient(to bottom,
+    rgba(255, 253, 249, 0.72) 0,
+    rgba(178, 208, 222, 0.55) 2.5rem,
+    rgba(96, 146, 176, 0.34) 40%,
+    rgba(80, 124, 156, 0.5) 100%);
+}
+.wash .crest {
+  position: absolute; left: 0; top: -27px; width: calc(100% + 260px); height: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 28' preserveAspectRatio='none'%3E%3Cpath d='M0 18 C40 4 90 4 130 16 S220 30 260 18 V28 H0Z' fill='rgba(255,253,249,0.72)'/%3E%3C/svg%3E") repeat-x;
+  background-size: 260px 28px;
+  animation: roll 3s linear infinite;
+}
+.wash .crest-2 { top: -18px; opacity: 0.55; animation-duration: 4.6s; animation-direction: reverse; }
+@keyframes roll { to { transform: translateX(-260px); } }
