@@ -7,6 +7,8 @@
 
 const SITE = {
   name: "Bailey O'Regan",
+  // Your photo (put image files in the "images" folder)
+  photo: "images/headshot.jpg",
   // Tiny line above your name at the top of the page
   heroLabel: "design · water · people",
   // Small line at the bottom of the top section

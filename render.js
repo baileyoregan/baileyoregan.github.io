@@ -12,9 +12,11 @@
   document.title = SITE.name;
   $("brand").textContent = SITE.name;
   $("hero-label").textContent = SITE.heroLabel;
-  $("name").textContent = SITE.name;
+  typeName($("name"), SITE.name);
   $("tagline").textContent = SITE.tagline;
   $("location").textContent = SITE.location;
+  $("photo").src = SITE.photo;
+  $("photo").alt = "Portrait of " + SITE.name;
 
   SITE.about.forEach((p) => $("about-text").append(el("p", null, p)));
   SITE.tags.forEach((t) => $("tags").append(el("li", null, t)));
@@ -55,4 +57,38 @@
   $("email-link").href = "mailto:" + SITE.contact.email;
   $("linkedin-link").href = SITE.contact.linkedin;
   $("footer").textContent = SITE.footer;
+
+  // Spells the name out letter by letter, pauses, erases it, and repeats.
+  // Every letter is always on the page (just hidden), so nothing shifts around.
+  function typeName(h1, text) {
+    h1.setAttribute("aria-label", text);
+    const letters = [...text].map((ch) => {
+      const s = el("span", "letter", ch);
+      s.setAttribute("aria-hidden", "true");
+      h1.append(s);
+      return s;
+    });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    h1.classList.add("typing");
+    const TYPE = 140, ERASE = 70, HOLD = 2600, REST = 700;
+    let shown = 0, dir = 1;
+    const render = () => {
+      letters.forEach((s, i) => {
+        s.classList.toggle("off", i >= shown);
+        s.classList.toggle("cursor", i === shown - 1);
+      });
+      h1.classList.toggle("empty", shown === 0);
+    };
+    const tick = () => {
+      shown += dir;
+      render();
+      let wait = dir > 0 ? TYPE : ERASE;
+      if (shown === letters.length) { dir = -1; wait = HOLD; }
+      else if (shown === 0) { dir = 1; wait = REST; }
+      setTimeout(tick, wait);
+    };
+    shown = 0; render();
+    setTimeout(tick, 400);
+  }
 })();

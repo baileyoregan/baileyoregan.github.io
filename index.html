@@ -31,7 +31,7 @@
   </section>
 
   <main>
-    <!-- 01 About: index on the left, welcome text in the middle, framed "plaster wave" art on the right -->
+    <!-- 01 About: index on the left, welcome text in the middle, framed headshot on the right -->
     <section class="spread" id="about">
       <div class="index">
         <h2 class="section-title">Index.</h2>
@@ -48,28 +48,8 @@
         <div id="about-text"></div>
         <ul class="tags" id="tags"></ul>
       </div>
-      <figure class="frame" aria-hidden="true">
-        <svg viewBox="0 0 300 400" preserveAspectRatio="none">
-          <defs>
-            <filter id="plaster" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/>
-              <feDiffuseLighting in="n" lighting-color="#fbf8f3" surfaceScale="1.4" result="l">
-                <feDistantLight azimuth="225" elevation="55"/>
-              </feDiffuseLighting>
-              <feComposite in="l" in2="SourceGraphic" operator="in"/>
-            </filter>
-          </defs>
-          <rect width="300" height="400" fill="#f6f2ec"/>
-          <rect width="300" height="400" fill="#f6f2ec" filter="url(#plaster)" opacity="0.55"/>
-          <g fill="none" stroke-linecap="round">
-            <path d="M-10 150 C 40 120, 80 175, 130 145 S 230 120, 310 150" stroke="#ffffff" stroke-width="16"/>
-            <path d="M-10 150 C 40 120, 80 175, 130 145 S 230 120, 310 150" stroke="#d9cfc2" stroke-width="2" transform="translate(2 8)"/>
-            <path d="M-10 205 C 50 180, 100 230, 160 200 S 250 185, 310 210" stroke="#ffffff" stroke-width="22"/>
-            <path d="M-10 205 C 50 180, 100 230, 160 200 S 250 185, 310 210" stroke="#d9cfc2" stroke-width="2" transform="translate(2 11)"/>
-            <path d="M-10 265 C 60 245, 110 290, 170 262 S 260 250, 310 270" stroke="#ffffff" stroke-width="14"/>
-            <path d="M-10 265 C 60 245, 110 290, 170 262 S 260 250, 310 270" stroke="#d9cfc2" stroke-width="2" transform="translate(2 7)"/>
-          </g>
-        </svg>
+      <figure class="frame">
+        <img id="photo" src="images/headshot.jpg" alt="" width="720" height="900">
       </figure>
     </section>
 

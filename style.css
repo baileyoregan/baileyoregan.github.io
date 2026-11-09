@@ -118,11 +118,15 @@ h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400
   border: 10px solid var(--oak);
   border-image: linear-gradient(135deg, #c9a57c, #a07a50 50%, #c29d72) 1;
   box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 8px 14px 30px -12px rgba(80, 60, 40, 0.35);
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   max-width: 17rem; width: 100%;
   justify-self: center;
 }
-.frame svg { width: 100%; height: 100%; display: block; }
+.frame img {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover; object-position: 50% 50%;
+  filter: sepia(0.12) saturate(0.9) contrast(0.97);
+}
 @media (max-width: 899px) { .frame { max-width: 14rem; } }
 
 /* ---------- 02 In the water ---------- */
@@ -193,3 +197,15 @@ h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400
   max-width: 70rem; margin: 0 auto;
 }
 .footer a { text-decoration: none; }
+
+/* ---------- Name spelling itself out (see typeName in render.js) ---------- */
+.emboss .letter { position: relative; transition: opacity 0.12s ease; }
+.emboss .letter.off { opacity: 0; }
+.emboss .cursor::after,
+.emboss.empty .letter:first-child::before {
+  content: ""; position: absolute; top: 0.14em; bottom: 0.1em; width: 2px;
+  background: var(--oak); animation: blink 1s steps(1) infinite;
+}
+.emboss .cursor::after { right: -0.08em; }
+.emboss.empty .letter:first-child::before { left: -0.04em; }
+@keyframes blink { 50% { opacity: 0; } }
